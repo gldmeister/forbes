@@ -1,0 +1,27 @@
+# Название вашего сайта
+title: "Мой сайт на Jekyll"
+description: "Это пример сайта на Jekyll, размещенный на GitHub Pages"
+
+# URL вашего сайта
+url: "https://gldmeister.github.io/forbes"
+
+# Путь к файлам сайта
+baseurl: "/forbes" # Укажите здесь путь, если ваш сайт не находится в корне
+
+# Настройки для Jekyll
+theme: jekyll-theme-cayman  # Здесь можно указать тему, если она есть
+markdown: kramdown
+permalink: pretty
+
+# Определения переменных для страниц и постов
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+# Дата создания постов по умолчанию
+collections:
+  posts:
+    output: true
