@@ -1,0 +1,533 @@
+/* Сброс и базовые стили */
+/* Сброс и базовая настройка */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Roboto Flex', sans-serif;
+    font-size: 14px;
+    background-color: #fff;
+    color: #000;
+  }
+  
+  /* Хедер */
+  .header {
+    background-color: #000;
+    width: 100%;
+    padding: 16px 0; /* Убрали конфликт с высотой */
+  }
+  
+  /* Контейнер хедера */
+  .header-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 48px; /* задаём точную высоту */
+  }
+  
+  /* Левая часть (логотип + меню) */
+  .nav-left {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+  
+  /* Логотип */
+  .logo svg,
+  .logo img {
+    height: 24px;
+    display: block;
+  }
+  
+  /* Навигация */
+  .nav {
+    margin-left: 0; /* можешь оставить 32px, если хочешь отступ от логотипа */
+  }
+  
+  .nav-menu {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .nav-menu li a {
+    position: relative;
+    display: inline-block;
+    font-family: 'Roboto Flex', sans-serif;
+    font-size: 14px;
+    color: white;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .nav-menu li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    height: 1px;
+    background-color: red;
+    width: 0%;
+    transition: width 0.3s ease;
+  }
+  
+  .nav-menu li a:hover::after {
+    width: 100%;
+  }
+  
+  .nav-menu li a:hover {
+    color: red;
+  }
+
+  .no-underline a::after {
+    display: none !important;
+  }
+  
+  /* Freedom Broker */
+  .logo-fb img {
+    height: 20px;
+    object-fit: contain;
+    vertical-align: middle;
+  }
+  
+  /* Правая часть */
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .subscribe-btn {
+    background-color: #DC0000;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: 'Roboto Flex', sans-serif;
+  }
+  
+  .subscribe-btn:hover {
+    background-color: darkred;
+  }
+  
+  .icon {
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  .icon svg {
+    width: 100%;
+    height: 100%;
+    fill: white;
+  }
+  
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+  
+  .kz-articles-block {
+    padding: 100px 0 40px 0;
+  }
+  
+  .kz-articles-block + .kz-articles-block {
+    border-top: 1px solid #e0e0e0;
+  }
+  
+  .kz-articles-block .section-title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #ddd; /* Вот эта линия */
+  }
+  
+  .tabs {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 32px;
+    margin-top: 30px;
+    font-size: 18px;
+  }
+  
+  .tab {
+    position: relative;
+    cursor: pointer;
+    color: black;
+    transition: color 0.3s ease;
+  }
+  
+  .tab:hover {
+    color: rgb(200, 2, 2); /* цвет при наведении */
+  }
+  
+  .tab.active {
+    color: rgb(200, 2, 2);
+  }
+  
+  .tab.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 2px;
+    background-color: rgb(200, 2, 2);
+  }
+  
+  .articles-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 48px;
+    position: relative;
+  }
+
+  .articles-grid{
+    border-bottom: 1px solid #eee;
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+  }
+  
+  .article-featured {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .image-wrapper {
+    overflow: hidden;
+    border-radius: 8px;
+  }
+  
+  .image-wrapper img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.4s ease;
+    transform: scale(1);
+  }
+  
+  .article-featured:hover .image-wrapper img {
+    transform: scale(1.1); /* приближение внутрь обёртки */
+  } 
+  
+  .article-featured .article-date {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #888;
+  }
+  
+  .article-featured .article-title {
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 6px;
+    color: #111;
+    transition: color 0.3s ease; /* Добавили плавность */
+  }
+  
+  .article-featured:hover .article-title {
+    color: rgb(200, 2, 2);
+  }
+  
+  .article-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .article-item {
+    padding: 12px 0;
+    border-bottom: 1px dashed #ddd; /* Пунктирная линия */
+  }
+
+  .article-item:last-child {
+    border-bottom: none;
+  }
+  
+  .article-item a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: color 0.3s ease;
+  }
+  
+  .article-item a:hover .article-title {
+    color: rgb(200, 2, 2);
+  }
+  
+  .article-date {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 4px;
+  }
+  
+  .article-title {
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+  
+  /* Вертикальные линии */
+  .articles-grid > .article-list:first-of-type {
+    border-left: 1px solid #e0e0e0;
+    padding-left: 24px;
+  }
+  
+  .articles-grid > .article-list:last-of-type {
+    border-left: 1px solid #e0e0e0;
+    padding-left: 24px;
+  }
+  
+  /* Горизонтальная линия между блоками */
+  .kz-articles-block + .kz-articles-block {
+    border-top: 1px solid #e0e0e0;
+    margin-top: 48px;
+    padding-top: 48px;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-top: 40px;
+    font-size: 20px;
+  }
+  
+  .pagination a {
+    color: #111;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+  
+  .pagination a:hover {
+    color: #6e6d6d; /* Тёмно-серый при наведении */
+  }
+  
+  /* Активная страница */
+  .pagination .active {
+    background-color: #111;
+    color: white;
+    font-weight: bold;
+    padding: 6px 16px;
+    border-radius: 8px;
+    pointer-events: auto;
+    transition: opacity 0.3s ease;
+  }
+  
+  /* Только прозрачность — цвет текста не меняется! */
+  .pagination .active:hover {
+    opacity: 0.7;
+    color: white;
+    transform: none;
+  }
+
+  .footer {
+    background-color: #0d0d0d;
+    color: white;
+    padding: 40px 0;
+    font-size: 14px;
+  }
+  
+  .footer a {
+    color: white;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+  
+  .footer a:hover {
+    opacity: 0.7;
+  }
+  
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding-bottom: 40px;
+  }
+  
+  .footer-logo-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .footer-logo img {
+    height: 48px;
+  }
+  
+  .footer-socials {
+    display: flex;
+    gap: 12px;
+  }
+  
+  .footer-socials img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .footer-nav {
+    display: flex;
+    justify-content: flex-start; /* Элементы прижимаются к левому краю */
+    width: 100%; /* Обеспечивает правильную ширину для обеих колонок */
+    flex-grow: 1; /* растягивает навигацию на всю ширину */
+  }
+  
+  .footer-nav-column {
+    display: flex;
+    flex-direction: column;
+    margin-right: 40px; /* Отступ между колонками */
+  }
+
+  /* Общие стили для ссылок */
+  .footer-nav a {
+    position: relative;
+    color: #fff;  /* Цвет текста по умолчанию */
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 600;
+    display: inline-flex; /* Используем flex, чтобы элементы выравнивались в строку */
+    align-items: center; /* Центрируем стрелку по вертикали */
+    gap: 2px; /* Отступ между текстом и стрелкой */
+    padding-bottom: 2px;
+    padding-top: 8px;
+    transition: color 0.3s ease;
+  }
+  
+  /* Линия снизу при наведении */
+  .footer-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: rgb(251, 42, 42);
+    transition: width 0.3s ease;
+  }
+  
+  /* При наведении на ссылку */
+  .footer-nav a:hover {
+    color: rgb(251, 42, 42);
+  }
+  
+  .footer-nav a:hover::after {
+    width: 100%;
+  }
+  
+  /* Стрелка на одной строке с текстом */
+  .footer__navItem-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Стрелка меняет цвет при наведении */
+  .footer-nav a:hover .footer__navItem-icon svg {
+    fill: rgb(251, 42, 42); /* Цвет стрелки при наведении */
+  }
+  
+  .footer-nav-column {
+    margin-right: 40px; /* Отступ между колонками */
+  }
+  
+  /* Стиль для раскрытия меню */
+  .footer-nav-column ul {
+    padding-left: 0;
+    list-style-type: none;
+  }
+  
+  /* Для мобильных устройств (при необходимости) */
+  @media (max-width: 768px) {
+    .footer-nav-column {
+      margin-right: 20px; /* Меньший отступ */
+    }
+  }
+  
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column; /* Размещаем элементы по вертикали */
+    margin-top: 40px;
+    gap: 20px;
+    font-size: 13px;
+    color: #aaa;
+  }
+
+  .footer-bottom a {
+    color: #888; /* Серый цвет по умолчанию */
+    text-decoration: none;
+    padding-bottom: 2px; /* Уменьшено расстояние */
+    display: inline-block;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-bottom a::after {
+    content: '';
+    position: absolute;
+    bottom: 0; /* Линия будет ближе к тексту */
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: rgb(200, 2, 2); /* Красная линия */
+    transition: width 0.3s ease;
+  }
+  
+  .footer-bottom a:hover {
+    color: rgb(200, 2, 2); /* Красный цвет текста при наведении */
+  }
+  
+  .footer-bottom a:hover::after {
+    width: 100%; /* Линия растягивается на всю ширину */
+  }
+  
+  .footer-links {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .footer-links a {
+    color: #888; /* Серый цвет текста */
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-links a:hover {
+    color: rgb(200, 2, 2); /* Цвет текста при наведении */
+  }
+  
+  .footer-copy {
+    color: #888;
+    font-size: 14px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+  .footer-copy p {
+    align-self: flex-end; /* Позиционируем копирайты внизу */
+    color: #888;
+    font-size: 14px;
+    margin-right: 20px;
+  }
